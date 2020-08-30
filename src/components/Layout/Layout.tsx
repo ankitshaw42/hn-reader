@@ -1,12 +1,12 @@
 import React from 'react';
 
 import './Layout.module.css';
-import Navbar from '../Navbar/Navbar';
+import Header from '../Header';
 
 const Layout: React.FC = ({ children }) => {
   return (
     <>
-      <Navbar />
+      <Header />
       {children}
     </>
   );

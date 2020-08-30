@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from './components/Layout/Layout';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-function App() {
+// app pages
+import Top from './pages/top';
+import New from './pages/new';
+import Show from './pages/show';
+import Ask from './pages/ask';
+import Jobs from './pages/jobs';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Route path="/top" component={Top} />
+        <Route path="/new" component={New} />
+        <Route path="/show" component={Show} />
+        <Route path="/ask" component={Ask} />
+        <Route path="/jobs" component={Jobs} />
+
+        <Route path="/" render={() => <Redirect to="/top" />} />
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
