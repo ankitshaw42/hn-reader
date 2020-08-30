@@ -1,0 +1,35 @@
+.header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.main-nav {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0.8rem 0.25rem;
+}
+
+.main-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-nav__list img {
+  width: 1.5rem;
+}
+
+.main-nav__list a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem;
+}
+
+.main-nav__list .active {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .main-nav__list li {
+    margin-right: 1.25rem;
+  }
+}
