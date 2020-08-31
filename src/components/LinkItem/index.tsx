@@ -1,0 +1,40 @@
+import React from 'react';
+
+import './linkitem.css';
+
+import { Link } from '../../interfaces';
+
+const LinkItem: React.FC<{ link: Link }> = ({ link }) => {
+  return (
+    <li className="link-item">
+      <span className="score">{link.points}</span>
+
+      <div className="content">
+        <div className="url">
+          <a
+            className="title"
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.title}
+          </a>
+
+          <span className="domain">{link.domain}</span>
+        </div>
+
+        <div className="metadata">
+          <span className="user">
+            by <a href="/user">{link.user} </a>
+          </span>
+          <span className="time">{link.time_ago} | </span>
+          <a href="/" className="comments">
+            {link.comments_count} comments
+          </a>
+        </div>
+      </div>
+    </li>
+  );
+};
+
+export default LinkItem;

@@ -5,9 +5,9 @@ import './header.css';
 
 const Navbar: React.FC = () => {
   return (
-    <header className="header">
-      <nav className="main-nav">
-        <ul className="main-nav__list">
+    <header className="top-header">
+      <nav className="top-nav">
+        <ul className="top-nav__links">
           <li>
             <Link to="/top">
               <img src="/favicon.png" alt="hacker news icon" />

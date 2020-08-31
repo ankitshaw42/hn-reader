@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Layout.module.css';
+import './layout.css';
 import Header from '../Header';
 
 const Layout: React.FC = ({ children }) => {
