@@ -1,7 +1,7 @@
 .link-item {
   padding: 0.75rem;
   border-radius: 0.375rem;
-  width: 90%;
+  width: 95%;
   max-width: 824px;
   margin: 1rem auto;
   box-shadow: 2px 2px 8px 0 rgba(46, 61, 73, 0.2);
@@ -12,15 +12,16 @@
 }
 
 .link-item .title {
-  font-size: 0.95rem;
+  /* font-size: 0.95rem; */
   text-decoration: none;
   color: #333;
 }
 
 .link-item .score {
-  min-width: 3rem;
-  text-align: center;
-  padding: 0 0.5rem;
+  min-width: 2.75rem;
+  /* text-align: center; */
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .link-item .domain {
@@ -32,4 +33,9 @@
 .link-item .metadata {
   font-size: 0.8rem;
   margin-top: 0.25rem;
+}
+
+.link-item .metadata a {
+  color: blueviolet;
+  text-decoration: none;
 }

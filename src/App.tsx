@@ -1,8 +1,7 @@
 import React from 'react';
-import Layout from './components/Layout/Layout';
+import Layout from './components/Layout';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-// app pages
 import Top from './pages/top';
 import New from './pages/new';
 import Show from './pages/show';
