@@ -1,15 +1,13 @@
 import React from 'react';
 
-import LinkItem from '../../components/LinkItem';
+import LinkItem from '../components/LinkItem';
 
-import useDocumentTitle from '../../hooks/useDocumentTitle';
-import useFetch from '../../hooks/useFetch';
+import useDocumentTitle from '../hooks/useDocumentTitle';
+import useFetch from '../hooks/useFetch';
 
-import { Link } from '../../interfaces';
-
-const Top = () => {
+const NewsPage = ({ pageName }) => {
   useDocumentTitle('HN - Top Links');
-  const { data: links, loading, error } = useFetch<Link[]>(
+  const { data: links, loading, error } = useFetch(
     'https://api.hackerwebapp.com/news?page=1'
   );
 
@@ -30,4 +28,4 @@ const Top = () => {
   );
 };
 
-export default Top;
+export default NewsPage;

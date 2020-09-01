@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import './header.css';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   return (
     <header className="top-header">
       <nav className="top-nav">

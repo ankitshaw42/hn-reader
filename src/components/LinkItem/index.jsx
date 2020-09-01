@@ -2,9 +2,7 @@ import React from 'react';
 
 import './linkitem.css';
 
-import { Link } from '../../interfaces';
-
-const LinkItem: React.FC<{ link: Link }> = ({ link }) => {
+const LinkItem = ({ link }) => {
   return (
     <li className="link-item">
       <span className="score">{link.points}</span>

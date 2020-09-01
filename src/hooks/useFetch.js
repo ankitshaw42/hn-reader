@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react';
 
-export default function useFetch<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
+const cache = {};
+
+export default function useFetch(url) {
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) {
+      return;
+    }
+
     async function getData() {
+      if (cache[url]) {
+        console.log('cache hit');
+        setData(cache[url]);
+        return;
+      }
+
       setLoading(true);
 
       try {
         const response = await fetch(url);
         const data = await response.json();
+        cache[url] = data;
         setData(data);
       } catch (error) {
         setError(error);
