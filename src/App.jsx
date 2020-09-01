@@ -8,13 +8,27 @@ const App = () => {
   return (
     <Router>
       <Layout>
-        <Route path="/top" component={NewsPage} />
-        {/* <Route path="/new" component={New} />
-        <Route path="/show" component={Show} />
-        <Route path="/ask" component={Ask} />
-        <Route path="/jobs" component={Jobs} /> */}
+        <Route path="/top">
+          <NewsPage pageName="news" />
+        </Route>
 
-        <Route path="/" render={() => <Redirect to="/top" />} />
+        <Route path="/new">
+          <NewsPage pageName="newest" />
+        </Route>
+
+        <Route path="/show">
+          <NewsPage pageName="show" />
+        </Route>
+
+        <Route path="/ask">
+          <NewsPage pageName="ask" />
+        </Route>
+
+        <Route path="/jobs">
+          <NewsPage pageName="jobs" />
+        </Route>
+
+        <Redirect to="/top" />
       </Layout>
     </Router>
   );

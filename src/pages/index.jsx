@@ -2,13 +2,11 @@ import React from 'react';
 
 import LinkItem from '../components/LinkItem';
 
-import useDocumentTitle from '../hooks/useDocumentTitle';
 import useFetch from '../hooks/useFetch';
 
 const NewsPage = ({ pageName }) => {
-  useDocumentTitle('HN - Top Links');
   const { data: links, loading, error } = useFetch(
-    'https://api.hackerwebapp.com/news?page=1'
+    `https://api.hackerwebapp.com/${pageName}?page=1`
   );
 
   if (loading) {
