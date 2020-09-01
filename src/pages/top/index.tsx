@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { getNews } from '../../api';
-import useLinks from '../../hooks/useLinks';
 import LinkItem from '../../components/LinkItem';
 
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import useFetch from '../../hooks/useFetch';
+
+import { Link } from '../../interfaces';
+
 const Top = () => {
-  const { links, error, loading } = useLinks('HN - Top Stories', getNews);
+  useDocumentTitle('HN - Top Links');
+  const { data: links, loading, error } = useFetch<Link[]>(
+    'https://api.hackerwebapp.com/news?page=1'
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -18,9 +24,7 @@ const Top = () => {
   return (
     <main className="link-wrapper">
       <ul>
-        {links.map((link) => (
-          <LinkItem key={link.id} link={link} />
-        ))}
+        {links && links.map((link) => <LinkItem key={link.id} link={link} />)}
       </ul>
     </main>
   );

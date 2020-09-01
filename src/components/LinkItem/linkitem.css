@@ -7,19 +7,15 @@
   box-shadow: 2px 2px 8px 0 rgba(46, 61, 73, 0.2);
 
   display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
 }
 
 .link-item .title {
-  /* font-size: 0.95rem; */
   text-decoration: none;
   color: #333;
 }
 
 .link-item .score {
   min-width: 2.75rem;
-  /* text-align: center; */
   color: var(--primary-color);
   font-weight: bold;
 }
@@ -38,4 +34,8 @@
 .link-item .metadata a {
   color: blueviolet;
   text-decoration: none;
+}
+
+.link-item .metadata a:hover {
+  text-decoration: underline;
 }
