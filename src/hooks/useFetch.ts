@@ -1,24 +1,14 @@
 import { useEffect, useState } from 'react';
 
-const cache = {};
+const cache: any = {};
 
-export default function useFetch(url) {
-  const [data, setData] = useState(null);
+export default function useFetch<TData>(url: string) {
+  const [data, setData] = useState<TData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    if (!url) {
-      return;
-    }
-
     async function getData() {
-      if (cache[url]) {
-        console.log('cache hit');
-        setData(cache[url]);
-        return;
-      }
-
       setLoading(true);
 
       try {
@@ -34,7 +24,11 @@ export default function useFetch(url) {
       setLoading(false);
     }
 
-    getData();
+    if (cache[url]) {
+      setData(cache[url]);
+    } else {
+      getData();
+    }
   }, [url]);
 
   return { data, error, loading };

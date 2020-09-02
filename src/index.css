@@ -25,3 +25,7 @@ ol {
   margin: 0;
   list-style-type: none;
 }
+
+main.content {
+  padding-top: 5rem;
+}

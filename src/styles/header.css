@@ -1,6 +1,10 @@
 .top-header {
   background-color: var(--primary-color);
   color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .top-nav {
