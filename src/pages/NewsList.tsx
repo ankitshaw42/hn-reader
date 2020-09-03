@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import useFetch from '../hooks/useFetch';
 import LinkItem from '../components/LinkItem';
 
-import { Link } from '../interfaces/Link';
+import { Link } from '../interfaces';
 
 type NewsPageProps = {
   pageName: 'news' | 'show' | 'newest' | 'ask' | 'jobs';
 };
 
 const NewsPage = ({ pageName }: NewsPageProps) => {
+  useEffect(() => {
+    document.title = 'Hacker News Reader';
+  }, []);
+
   const { data: links, loading, error } = useFetch<Link[]>(
     `https://api.hackerwebapp.com/${pageName}?page=1`
   );

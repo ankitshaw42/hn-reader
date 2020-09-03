@@ -26,6 +26,13 @@ ol {
   list-style-type: none;
 }
 
+a {
+  color: #333;
+  padding: 0.25rem;
+}
+
 main.content {
-  padding-top: 5rem;
+  padding: 5rem 0;
+  max-width: 860px;
+  margin: 0 auto;
 }
