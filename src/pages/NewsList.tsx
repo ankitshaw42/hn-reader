@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import LinkItem from '../components/LinkItem';
+import Pagination from '../components/Pagination';
 
 import useFetch from '../hooks/useFetch';
-import LinkItem from '../components/LinkItem';
-
 import { Link } from '../interfaces';
 
 type NewsPageProps = {
@@ -10,20 +11,23 @@ type NewsPageProps = {
 };
 
 const NewsPage = ({ pageName }: NewsPageProps) => {
+  const [page, setPage] = useState(1);
   const { data: links, loading, error } = useFetch<Link[]>(
-    `https://api.hackerwebapp.com/${pageName}?page=1`
+    `https://api.hackerwebapp.com/${pageName}?page=${page}`
   );
 
   useEffect(() => {
     document.title = 'Hacker News Reader';
   }, []);
 
+  let status = null;
+
   if (loading) {
-    return <div style={{ textAlign: 'center' }}>Loading...</div>;
+    status = <div style={{ textAlign: 'center' }}>Loading...</div>;
   }
 
   if (error) {
-    return (
+    status = (
       <div style={{ textAlign: 'center', color: 'crimson' }}>
         {error.message}
       </div>
@@ -31,11 +35,17 @@ const NewsPage = ({ pageName }: NewsPageProps) => {
   }
 
   return (
-    <ul>
-      {links?.map((link) => (
-        <LinkItem key={link.id} link={link} />
-      ))}
-    </ul>
+    <>
+      <Pagination page={page} setPage={setPage} />
+
+      {status || (
+        <ul>
+          {links?.map((link) => (
+            <LinkItem key={link.id} link={link} />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };
 

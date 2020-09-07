@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Pagination() {
-  const [page, setPage] = useState(1);
+type PaginationProps = {
+  page: number;
+  setPage: Function;
+};
 
+function Pagination({ page, setPage }: PaginationProps) {
   return (
     <div>
-      <span onClick={() => setPage((page) => page - 1)}>&lt; Prev</span>
+      <span
+        style={{ display: page === 1 ? 'none' : 'inline' }}
+        onClick={() => setPage((page: number) => page - 1)}
+      >
+        &lt; Prev
+      </span>
       <span>{page}</span>
-      <span onClick={() => setPage((page) => page + 1)}>Next &gt;</span>
+      <span onClick={() => setPage((page: number) => page + 1)}>Next &gt;</span>
     </div>
   );
 }
