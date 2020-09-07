@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import Header from './Header';
+import Navbar from './Header';
+import Pagination from './Pagination';
 
 type LayoutProps = {
   children: ReactNode;
@@ -9,8 +10,9 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Header />
-      <main className="content">{children}</main>
+      <Navbar />
+      <Pagination />
+      <main>{children}</main>
     </>
   );
 };

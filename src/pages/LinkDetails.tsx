@@ -23,7 +23,7 @@ function LinkDetails() {
   console.log(link);
 
   return (
-    <div className="linkDetails">
+    <div>
       {link && <LinkItem link={link} showComments={false} />}
 
       <h2>Comments</h2>

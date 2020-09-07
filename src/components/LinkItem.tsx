@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../styles/linkItem.css';
-
 import { Link } from 'react-router-dom';
 
 import { Link as ILink } from '../interfaces';
@@ -25,34 +23,29 @@ const LinkItem = ({ link, showComments = true }: LinkItemProps) => {
   } = link;
 
   return (
-    <li className="link-item">
-      {type !== 'job' && <span className="score">{points || 0}</span>}
+    <li>
+      {type !== 'job' && <span>{points || 0}</span>}
 
-      <div className="content">
-        <div className="url">
-          <a
-            className="title"
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <div>
+        <div>
+          <a href={url} target="_blank" rel="noopener noreferrer">
             {title}
           </a>
 
-          <span className="domain">{domain}</span>
+          <span>{domain}</span>
         </div>
 
-        <div className="metadata">
+        <div>
           {user && (
-            <span className="user">
+            <span>
               by <Link to={`/user/${user}`}>{user}</Link>
             </span>
           )}
 
-          <span className="time">{time_ago}</span>
+          <span>{time_ago}</span>
 
           {type !== 'job' && showComments && (
-            <a href={`/link/${id}`} className="comments">
+            <a href={`/link/${id}`}>
               {comments_count === 0
                 ? ' no comments'
                 : ` ${comments_count} comments`}

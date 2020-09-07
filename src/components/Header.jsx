@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-import '../styles/header.css';
-
 const Navbar = () => {
   return (
-    <header className="top-header">
-      <nav className="top-nav">
-        <ul className="top-nav__links">
+    <header>
+      <nav>
+        <ul>
           <li>
             <Link to="/top">
               <img src="/favicon.png" alt="hacker news icon" />

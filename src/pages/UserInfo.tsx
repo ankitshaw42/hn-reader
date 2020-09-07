@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
 import { useRouteMatch } from 'react-router-dom';
 
-import '../styles/userInfo.css';
-
 function UserInfo() {
   const match = useRouteMatch<any>();
   const userName = match.params.userName;
@@ -25,13 +23,13 @@ function UserInfo() {
   }
 
   return (
-    <div className="userInfo">
-      <h2 className="name">{user?.id}</h2>
-      <p className="details">
+    <>
+      <h2>{user?.id}</h2>
+      <p>
         ... joined {user?.created}, and has {user?.karma} karma.
       </p>
 
-      <p className="links">
+      <div>
         <a
           href={`https://news.ycombinator.com/submitted?id=${userName}`}
           target="_blank"
@@ -55,8 +53,8 @@ function UserInfo() {
         >
           favorites
         </a>
-      </p>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -10,13 +10,13 @@ type NewsPageProps = {
 };
 
 const NewsPage = ({ pageName }: NewsPageProps) => {
-  useEffect(() => {
-    document.title = 'Hacker News Reader';
-  }, []);
-
   const { data: links, loading, error } = useFetch<Link[]>(
     `https://api.hackerwebapp.com/${pageName}?page=1`
   );
+
+  useEffect(() => {
+    document.title = 'Hacker News Reader';
+  }, []);
 
   if (loading) {
     return <div style={{ textAlign: 'center' }}>Loading...</div>;
