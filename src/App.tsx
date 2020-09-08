@@ -6,10 +6,12 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import NewsList from './pages/NewsList';
+import NewsPage from './pages/NewsPage';
 import UserInfo from './pages/UserInfo';
 import LinkDetails from './pages/LinkDetails';
 import Header from './components/Header';
+
+const newsPages = ['news', 'newest', 'show', 'ask', 'jobs'];
 
 const App = () => {
   return (
@@ -17,25 +19,11 @@ const App = () => {
       <Header />
 
       <Switch>
-        <Route path="/top">
-          <NewsList pageName="news" />
-        </Route>
-
-        <Route path="/new">
-          <NewsList pageName="newest" />
-        </Route>
-
-        <Route path="/show">
-          <NewsList pageName="show" />
-        </Route>
-
-        <Route path="/ask">
-          <NewsList pageName="ask" />
-        </Route>
-
-        <Route path="/jobs">
-          <NewsList pageName="jobs" />
-        </Route>
+        {newsPages.map((page) => (
+          <Route path={`/${page}`} key={page}>
+            <NewsPage pageName={page} />
+          </Route>
+        ))}
 
         <Route path="/user/:userName">
           <UserInfo />
@@ -46,7 +34,7 @@ const App = () => {
         </Route>
 
         {/* Redirect all other links to top page */}
-        <Redirect to="/top" />
+        <Redirect to="/news" />
       </Switch>
     </Router>
   );

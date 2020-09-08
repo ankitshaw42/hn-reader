@@ -5,6 +5,7 @@ type PaginationProps = {
   setPage: Function;
 };
 
+// Fix next page on last set of data
 function Pagination({ page, setPage }: PaginationProps) {
   return (
     <div>

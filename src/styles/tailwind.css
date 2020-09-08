@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.header {
+  @apply bg-orange-500 text-white p-2 text-sm fixed top-0 w-full shadow;
+}
