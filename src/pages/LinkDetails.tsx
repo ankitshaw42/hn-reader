@@ -1,7 +1,7 @@
 import React from 'react';
+import { useRouteMatch } from 'react-router-dom';
 
 import LinkItem from '../components/LinkItem';
-import { useRouteMatch } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function LinkDetails() {
@@ -20,14 +20,12 @@ function LinkDetails() {
     return <div>{error.message}</div>;
   }
 
-  console.log(link);
-
   return (
-    <div>
+    <main>
       {link && <LinkItem link={link} showComments={false} />}
 
       <h2>Comments</h2>
-    </div>
+    </main>
   );
 }
 

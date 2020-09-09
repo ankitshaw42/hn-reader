@@ -10,13 +10,11 @@ type LinkListProps = {
 
 function LinkList({ loading, error, links }: LinkListProps) {
   if (loading) {
-    return <div style={{ textAlign: 'center' }}>Loading...</div>;
+    return <div className="text-center mt-5">Loading...</div>;
   }
 
   if (error) {
-    return (
-      <div style={{ textAlign: 'center', color: 'red' }}>{error.message}</div>
-    );
+    return <div className="text-center mt-5 text-red-700">{error.message}</div>;
   }
 
   return (

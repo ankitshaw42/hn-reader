@@ -21,7 +21,7 @@ const NewsPage = ({ pageName }: NewsPageProps) => {
   }, []);
 
   return (
-    <main className="mt-20">
+    <main className="mt-12 p-2 text-gray-800">
       <Pagination page={page} setPage={setPage} />
       <LinkList links={data} loading={loading} error={error} />
     </main>
