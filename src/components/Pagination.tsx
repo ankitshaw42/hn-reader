@@ -3,10 +3,11 @@ import React from 'react';
 type PaginationProps = {
   page: number;
   setPage: Function;
+  showNextPage?: boolean;
 };
 
 // Fix next page on last set of data
-function Pagination({ page, setPage }: PaginationProps) {
+function Pagination({ page, setPage, showNextPage = true }: PaginationProps) {
   return (
     <div className="py-1 text-center cursor-pointer text-black hover:text-gray-800">
       <span
@@ -16,7 +17,12 @@ function Pagination({ page, setPage }: PaginationProps) {
         &lt; Prev
       </span>
       <span className="mx-2">{page}</span>
-      <span onClick={() => setPage((page: number) => page + 1)}>Next &gt;</span>
+
+      {showNextPage && (
+        <span onClick={() => setPage((page: number) => page + 1)}>
+          Next &gt;
+        </span>
+      )}
     </div>
   );
 }

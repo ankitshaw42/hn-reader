@@ -20,11 +20,19 @@ const NewsPage = ({ pageName }: NewsPageProps) => {
     document.title = 'Hacker News Reader';
   }, []);
 
+  const showNextPage = data?.length !== 0;
+
   return (
-    <main className="mt-12 p-2 text-gray-800">
-      <Pagination page={page} setPage={setPage} />
-      <LinkList links={data} loading={loading} error={error} />
-    </main>
+    <>
+      <Pagination page={page} setPage={setPage} showNextPage={showNextPage} />
+      {showNextPage ? (
+        <LinkList links={data} loading={loading} error={error} />
+      ) : (
+        <p className="mt-4 text-center text-black font-hairline text-xl">
+          Nothing to see here!
+        </p>
+      )}
+    </>
   );
 };
 

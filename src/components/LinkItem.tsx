@@ -62,11 +62,11 @@ const LinkItem = ({ link, showComments = true }: LinkItemProps) => {
           <span className="mr-2">{time_ago} | </span>
 
           {!isJobPosting && showComments && (
-            <a href={`/link/${id}`} className="text-blue-700 hover:underline">
+            <Link to={`/link/${id}`} className="text-blue-700 hover:underline">
               {comments_count === 0
                 ? ' no comments'
                 : ` ${comments_count} comments`}
-            </a>
+            </Link>
           )}
         </div>
       </div>

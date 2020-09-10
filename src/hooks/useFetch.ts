@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 
+// const cache: {
+//   [url: string]: any;
+// } = {};
+
 const cache: any = {};
 
 export default function useFetch<TData>(url: string) {
@@ -18,7 +22,7 @@ export default function useFetch<TData>(url: string) {
         setData(data);
       } catch (error) {
         setError(error);
-        console.log(error);
+        console.error(error);
       }
 
       setLoading(false);

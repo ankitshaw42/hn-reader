@@ -18,24 +18,22 @@ const App = () => {
     <Router>
       <Header />
 
-      <Switch>
-        {newsPages.map((page) => (
-          <Route path={`/${page}`} key={page}>
-            <NewsPage pageName={page} />
-          </Route>
-        ))}
+      <main className="mt-12 p-2 text-gray-800">
+        <Switch>
+          {newsPages.map((page) => (
+            <Route path={`/${page}`} key={page}>
+              <NewsPage pageName={page} />
+            </Route>
+          ))}
 
-        <Route path="/user/:userName">
-          <UserInfo />
-        </Route>
+          <Route path="/user/:userName" component={UserInfo} />
 
-        <Route path="/link/:linkId">
-          <LinkDetails />
-        </Route>
+          <Route path="/link/:linkId" component={LinkDetails} />
 
-        {/* Redirect all other links to top page */}
-        <Redirect to="/news" />
-      </Switch>
+          {/* Redirect all other links to top page */}
+          <Redirect to="/news" />
+        </Switch>
+      </main>
     </Router>
   );
 };
