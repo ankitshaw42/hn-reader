@@ -25,14 +25,14 @@ const LinkItem = ({ link, showComments = true }: LinkItemProps) => {
   const isJobPosting = type === 'job';
 
   return (
-    <li className="my-4 p-3 max-w-4xl mx-auto text-sm md:text-base flex items-center shadow hover:shadow-md transition-shadow duration-150 ease-in-out">
+    <li className="my-4 p-3 text-sm md:text-base flex items-center shadow hover:shadow-md transition-shadow duration-150 ease-in-out">
       {!isJobPosting && (
         <span className="font-bold text-orange-500 pr-2 w-10">
           {points || 0}
         </span>
       )}
 
-      <div className="flex-1 ">
+      <div className="flex-1">
         <div className="mb-1">
           <a
             href={url}
@@ -46,7 +46,7 @@ const LinkItem = ({ link, showComments = true }: LinkItemProps) => {
           <span className="text-gray-600 text-xs">{domain}</span>
         </div>
 
-        <div>
+        <div className="text-xs">
           {user && (
             <span className="mr-2 ">
               by{' '}

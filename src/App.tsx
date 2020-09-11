@@ -18,7 +18,7 @@ const App = () => {
     <Router>
       <Header />
 
-      <main className="mt-12 p-2 text-gray-800">
+      <main className="mt-12 p-2 text-gray-800 max-w-4xl mx-auto">
         <Switch>
           {newsPages.map((page) => (
             <Route path={`/${page}`} key={page}>
