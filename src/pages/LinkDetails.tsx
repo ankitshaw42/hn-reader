@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router-dom';
 
 import LinkItem from '../components/LinkItem';
 import useFetch from '../hooks/useFetch';
+import CommentList from '../components/CommentList';
 
 function LinkDetails() {
   const match = useRouteMatch<any>();
@@ -24,7 +25,8 @@ function LinkDetails() {
     <main>
       {link && <LinkItem link={link} showComments={false} />}
 
-      <h2>Comments</h2>
+      <h2 className="font-semibold text-2xl py-5">Comments</h2>
+      <CommentList comments={link?.comments} />
     </main>
   );
 }

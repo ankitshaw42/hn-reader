@@ -26,16 +26,16 @@ function UserInfo() {
     <>
       <a
         href={`https://news.ycombinator.com/user?id=${user?.id}`}
-        className="font-medium text-3xl block my-5"
+        className="font-medium text-2xl block my-5"
       >
         {user?.id}
       </a>
-      <p className="text-lg my-2">
+      <p className="text-md my-2">
         ... joined <strong>{user?.created}</strong>, and has{' '}
         <strong>{user?.karma}</strong> karma.
       </p>
 
-      <div className="text-lg">
+      <div className="text-md">
         <a
           href={`https://news.ycombinator.com/submitted?id=${userName}`}
           target="_blank"

@@ -25,7 +25,7 @@ const LinkItem = ({ link, showComments = true }: LinkItemProps) => {
   const isJobPosting = type === 'job';
 
   return (
-    <li className="my-4 p-3 text-sm md:text-base flex items-center shadow hover:shadow-md transition-shadow duration-150 ease-in-out">
+    <li className="bg-white rounded-md my-4 p-3 text-sm md:text-base flex items-center shadow hover:shadow-md transition-shadow duration-150 ease-in-out">
       {!isJobPosting && (
         <span className="font-bold text-orange-500 pr-2 w-10">
           {points || 0}

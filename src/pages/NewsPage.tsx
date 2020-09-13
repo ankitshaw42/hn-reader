@@ -12,7 +12,7 @@ type NewsPageProps = {
 
 const NewsPage = ({ pageName }: NewsPageProps) => {
   const [page, setPage] = useState(1);
-  const { data, loading, error } = useFetch<Link[]>(
+  const { data: links, loading, error } = useFetch<Link[]>(
     `https://api.hackerwebapp.com/${pageName}?page=${page}`
   );
 
@@ -20,16 +20,17 @@ const NewsPage = ({ pageName }: NewsPageProps) => {
     document.title = 'Hacker News Reader';
   }, []);
 
-  const showNextPage = data?.length !== 0;
+  const showNextPage = links?.length !== 0;
 
   return (
     <>
       <Pagination page={page} setPage={setPage} showNextPage={showNextPage} />
+
       {showNextPage ? (
-        <LinkList links={data} loading={loading} error={error} />
+        <LinkList links={links} loading={loading} error={error} />
       ) : (
         <p className="mt-4 text-center text-black font-hairline text-xl">
-          Nothing to see here!
+          You have reached the end.
         </p>
       )}
     </>
