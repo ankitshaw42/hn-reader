@@ -4,6 +4,8 @@ import { useRouteMatch } from 'react-router-dom';
 import LinkItem from '../components/LinkItem';
 import useFetch from '../hooks/useFetch';
 import CommentList from '../components/CommentList';
+import Loading from '../components/Loading';
+import ErrorMessage from '../components/ErrorMessage';
 
 function LinkDetails() {
   const match = useRouteMatch<any>();
@@ -14,11 +16,11 @@ function LinkDetails() {
   );
 
   if (loading) {
-    return <div className="text-center">Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <ErrorMessage message={error.message} />;
   }
 
   return (
@@ -26,7 +28,7 @@ function LinkDetails() {
       {link && <LinkItem link={link} showComments={false} />}
 
       <h2 className="font-semibold text-2xl py-5">Comments</h2>
-      <CommentList comments={link?.comments} />
+      {link?.comments && <CommentList comments={link?.comments} />}
     </main>
   );
 }

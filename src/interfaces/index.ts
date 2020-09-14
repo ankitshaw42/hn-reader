@@ -10,3 +10,13 @@ export interface Link {
   url: string;
   user: string;
 }
+
+export interface Comment {
+  comments: Comment[];
+  content: string;
+  id: number;
+  level: number;
+  time: number;
+  time_ago: string;
+  user: string;
+}

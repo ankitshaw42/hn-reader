@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from '../interfaces';
 import LinkItem from './LinkItem';
+import Loading from './Loading';
+import ErrorMessage from './ErrorMessage';
 
 type LinkListProps = {
   loading: boolean;
@@ -10,11 +12,11 @@ type LinkListProps = {
 
 function LinkList({ loading, error, links }: LinkListProps) {
   if (loading) {
-    return <div className="text-center mt-5">Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div className="text-center mt-5 text-red-700">{error.message}</div>;
+    return <ErrorMessage message={error.message} />;
   }
 
   return (

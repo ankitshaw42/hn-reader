@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 
-// const cache: {
-//   [url: string]: any;
-// } = {};
-
-const cache: any = {};
+const cache: {
+  [url: string]: any;
+} = {};
 
 export default function useFetch<TData>(url: string) {
   const [data, setData] = useState<TData | null>(null);

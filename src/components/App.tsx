@@ -6,10 +6,10 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import NewsPage from './pages/NewsPage';
-import UserInfo from './pages/UserInfo';
-import LinkDetails from './pages/LinkDetails';
-import Header from './components/Header';
+import Header from './Header';
+import NewsPage from '../pages/NewsPage';
+import UserInfo from '../pages/UserInfo';
+import LinkDetails from '../pages/LinkDetails';
 
 const newsPages = ['news', 'newest', 'show', 'ask', 'jobs'];
 

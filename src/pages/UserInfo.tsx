@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
 import { useRouteMatch } from 'react-router-dom';
+import Loading from '../components/Loading';
+import ErrorMessage from '../components/ErrorMessage';
 
 function UserInfo() {
   const match = useRouteMatch<any>();
@@ -15,11 +17,11 @@ function UserInfo() {
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>{error.message}</div>;
+    return <ErrorMessage message={error.message} />;
   }
 
   return (

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Comment as IComment } from '../interfaces';
 
-export default function Comment({ comment }: any) {
+export default function Comment({ comment }: { comment: IComment }) {
   return (
     <div
-      className="text-sm lg:text-base mt-2 pt-2 pb-5 border-t border-gray-300 leading-relaxed"
+      className="text-sm lg:text-base mt-2 pt-2 pb-4 border-t border-gray-300 leading-relaxed"
       key={comment.id}
     >
       <div className="pb-3">

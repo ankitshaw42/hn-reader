@@ -1,19 +1,20 @@
 import React from 'react';
 import Comment from './Comment';
+import { Comment as IComment } from '../interfaces';
 
 interface CommentsProps {
-  comments: any[];
+  comments: IComment[];
 }
 
 function Comments({ comments }: CommentsProps) {
-  console.log(comments);
-  if (!comments) {
-    return <div>Loading...</div>;
-  }
+  const commentCount =
+    comments.length > 0
+      ? `${comments.length} ${comments.length > 1 ? 'comments' : 'comment'}`
+      : 'No comments';
 
   return (
     <div className="p-4 mb-5 bg-white shadow-xs rounded-sm">
-      <h3 className="font-semibold">{comments.length} comments</h3>
+      <h3 className="font-semibold">{commentCount}</h3>
 
       {comments.map((comment) => (
         <Comment comment={comment} key={comment.id} />
