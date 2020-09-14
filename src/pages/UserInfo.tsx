@@ -29,6 +29,8 @@ function UserInfo() {
       <a
         href={`https://news.ycombinator.com/user?id=${user?.id}`}
         className="font-medium text-2xl block my-5"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {user?.id}
       </a>

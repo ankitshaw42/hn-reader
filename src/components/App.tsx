@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,9 +7,11 @@ import {
 } from 'react-router-dom';
 
 import Header from './Header';
-import NewsPage from '../pages/NewsPage';
-import UserInfo from '../pages/UserInfo';
-import LinkDetails from '../pages/LinkDetails';
+import Loading from './Loading';
+
+const NewsPage = lazy(() => import('../pages/NewsPage'));
+const UserInfo = lazy(() => import('../pages/UserInfo'));
+const LinkDetails = lazy(() => import('../pages/LinkDetails'));
 
 const newsPages = ['news', 'newest', 'show', 'ask', 'jobs'];
 
@@ -19,20 +21,22 @@ const App = () => {
       <Header />
 
       <main className="mt-12 p-2 text-gray-800 max-w-4xl mx-auto">
-        <Switch>
-          {newsPages.map((page) => (
-            <Route path={`/${page}`} key={page}>
-              <NewsPage pageName={page} />
-            </Route>
-          ))}
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            {newsPages.map((page) => (
+              <Route path={`/${page}`} key={page}>
+                <NewsPage pageName={page} />
+              </Route>
+            ))}
 
-          <Route path="/user/:userName" component={UserInfo} />
+            <Route path="/user/:userName" component={UserInfo} />
 
-          <Route path="/link/:linkId" component={LinkDetails} />
+            <Route path="/link/:linkId" component={LinkDetails} />
 
-          {/* Redirect all other links to top page */}
-          <Redirect to="/news" />
-        </Switch>
+            {/* Redirect all other links to top page */}
+            <Redirect to="/news" />
+          </Switch>
+        </Suspense>
       </main>
     </Router>
   );
