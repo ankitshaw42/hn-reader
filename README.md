@@ -1,5 +1,5 @@
-## Hacker News Reader
+## Hacker News
 
-A simple hacker news clone built using React and Typescript.
+A hacker news client.
 
 Uses the [node-hnapi](https://api/hackerwebapp.com) as the backend.

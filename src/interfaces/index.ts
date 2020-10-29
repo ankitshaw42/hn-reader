@@ -20,4 +20,3 @@ export interface Comment {
   time_ago: string;
   user: string;
 }
-

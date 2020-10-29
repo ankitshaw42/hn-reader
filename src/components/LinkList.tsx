@@ -4,11 +4,11 @@ import LinkItem from './LinkItem';
 import Loading from './Loading';
 import ErrorMessage from './ErrorMessage';
 
-type LinkListProps = {
+interface LinkListProps {
   loading: boolean;
   error: Error | null;
   links: Link[] | null;
-};
+}
 
 function LinkList({ loading, error, links }: LinkListProps) {
   if (loading) {

@@ -16,7 +16,7 @@ function UserInfo() {
     `https://api.hackerwebapp.com/user/${userName}`
   );
 
-  if (loading) {
+  if (loading || !user) {
     return <Loading />;
   }
 
@@ -32,11 +32,11 @@ function UserInfo() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {user?.id}
+        {user.id}
       </a>
       <p className="text-md my-2">
-        ... joined <strong>{user?.created}</strong>, and has{' '}
-        <strong>{user?.karma}</strong> karma.
+        ... joined <strong>{user.created}</strong>, and has
+        <strong>{user.karma}</strong> karma.
       </p>
 
       <div className="text-md">

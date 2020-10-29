@@ -7,23 +7,27 @@ type PaginationProps = {
 };
 
 function Pagination({ page, setPage, showNextPage = true }: PaginationProps) {
+  const nextPage = (
+    <button
+      className={`focus:outline-none mx-2 ${!showNextPage && 'text-white'}`}
+      disabled={!showNextPage}
+      onClick={() => setPage((page: number) => page + 1)}
+    >
+      &gt;
+    </button>
+  );
+
   return (
-    <div className="py-3 text-center cursor-pointer text-black hover:text-gray-800">
-      <span
-        className={page === 1 ? 'hidden' : 'inline'}
+    <div className="py-3 text-center text-2xl font-bold cursor-pointer text-black hover:text-gray-800">
+      <button
+        disabled={page <= 1}
+        className={`focus:outline-none ${page <= 1 ? 'text-white' : ''}`}
         onClick={() => setPage((page: number) => page - 1)}
       >
-        &lt; Prev
-      </span>
+        &lt;
+      </button>
 
-      {showNextPage && (
-        <span
-          className="mx-2"
-          onClick={() => setPage((page: number) => page + 1)}
-        >
-          Next &gt;
-        </span>
-      )}
+      {nextPage}
     </div>
   );
 }

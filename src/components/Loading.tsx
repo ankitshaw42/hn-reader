@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Loading() {
   return (
-    <div className="text-center mt-5">
+    <div className="text-center mt-64">
       <span className="inline-flex items-center">
         <svg
           className="animate-spin -ml-1 mr-3 h-6 w-6 text-orange-500 text-center"

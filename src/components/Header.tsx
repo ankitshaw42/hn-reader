@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <header className="bg-orange-500 text-white p-2 text-sm md:text-base fixed top-0 w-full shadow">
       <nav>
@@ -31,6 +31,4 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -7,7 +7,7 @@ import CommentList from '../components/CommentList';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
 
-function LinkDetails() {
+export default function LinkDetails() {
   const match = useRouteMatch<any>();
   const { linkId } = match.params;
 
@@ -32,5 +32,3 @@ function LinkDetails() {
     </main>
   );
 }
-
-export default LinkDetails;

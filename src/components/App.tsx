@@ -15,7 +15,7 @@ const LinkDetails = lazy(() => import('../pages/LinkDetails'));
 
 const newsPages = ['news', 'newest', 'show', 'ask', 'jobs'];
 
-const App = () => {
+export default function App() {
   return (
     <Router>
       <Header />
@@ -33,13 +33,11 @@ const App = () => {
 
             <Route path="/link/:linkId" component={LinkDetails} />
 
-            {/* Redirect all other links to top page */}
+            {/* Redirect all other links to news page */}
             <Redirect to="/news" />
           </Switch>
         </Suspense>
       </main>
     </Router>
   );
-};
-
-export default App;
+}

@@ -6,11 +6,10 @@ interface CommentsProps {
   comments: IComment[];
 }
 
-function Comments({ comments }: CommentsProps) {
-  const commentCount =
-    comments.length > 0
-      ? `${comments.length} ${comments.length > 1 ? 'comments' : 'comment'}`
-      : 'No comments';
+export default function Comments({ comments }: CommentsProps) {
+  const commentCount = comments.length
+    ? `${comments.length} ${comments.length > 1 ? 'comments' : 'comment'}`
+    : 'No comments';
 
   return (
     <div className="p-4 mb-5 bg-white shadow-xs rounded-sm">
@@ -22,5 +21,3 @@ function Comments({ comments }: CommentsProps) {
     </div>
   );
 }
-
-export default Comments;
